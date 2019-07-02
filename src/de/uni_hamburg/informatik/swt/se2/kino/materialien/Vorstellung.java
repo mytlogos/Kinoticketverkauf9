@@ -22,6 +22,7 @@ public class Vorstellung
     private Uhrzeit _anfangszeit;
     private Uhrzeit _endzeit;
     private Datum _datum;
+ // TODO ersetze preis durch geldbetrag
     private int _preis;
     private boolean[][] _verkauft;
     private int _anzahlVerkauftePlaetze;
@@ -53,6 +54,7 @@ public class Vorstellung
     public Vorstellung(Kinosaal kinosaal, Film film, Uhrzeit anfangszeit,
             Uhrzeit endzeit, Datum datum, int preis)
     {
+    	// TODO ersetze preis durch geldbetrag
         assert kinosaal != null : "Vorbedingung verletzt: saal != null";
         assert film != null : "Vorbedingung verletzt: film != null";
         assert anfangszeit != null : "Vorbedingung verletzt: anfangszeit != null";
@@ -128,6 +130,7 @@ public class Vorstellung
      */
     public int getPreis()
     {
+    	// TODO ersetze preis durch geldbetrag
         return _preis;
     }
 
@@ -190,7 +193,7 @@ public class Vorstellung
     public int getPreisFuerPlaetze(Set<Platz> plaetze)
     {
         assert hatPlaetze(plaetze) : "Vorbedingung verletzt: hatPlaetze(plaetze)";
-
+        // TODO ersetze preis durch geldbetrag
         return _preis * plaetze.size();
     }
 

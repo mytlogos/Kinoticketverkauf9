@@ -44,6 +44,7 @@ public class VorstellungTest
         assertEquals(_16_45, v.getAnfangszeit());
         assertEquals(_20_15, v.getEndzeit());
         assertEquals(_11_07_2008, v.getDatum());
+        // TODO ersetze preis durch geldbetrag
         assertEquals(1230, v.getPreis());
         assertNotNull(v.toString());
     }
@@ -78,12 +79,14 @@ public class VorstellungTest
                 _11_07_2008, 1230);
         Set<Platz> s = new HashSet<Platz>();
 
+     // TODO ersetze preis durch geldbetrag
         assertEquals(0, v.getPreisFuerPlaetze(s));
 
         s.add(Platz.get(5, 5));
         s.add(Platz.get(5, 6));
         s.add(Platz.get(5, 7));
 
+     // TODO ersetze preis durch geldbetrag
         assertEquals(3690, v.getPreisFuerPlaetze(s));
     }
 
