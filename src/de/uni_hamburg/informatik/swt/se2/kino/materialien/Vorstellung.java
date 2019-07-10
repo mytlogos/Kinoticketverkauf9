@@ -3,6 +3,7 @@ package de.uni_hamburg.informatik.swt.se2.kino.materialien;
 import java.util.Set;
 
 import de.uni_hamburg.informatik.swt.se2.kino.fachwerte.Datum;
+import de.uni_hamburg.informatik.swt.se2.kino.fachwerte.Geldbetrag;
 import de.uni_hamburg.informatik.swt.se2.kino.fachwerte.Platz;
 import de.uni_hamburg.informatik.swt.se2.kino.fachwerte.Uhrzeit;
 
@@ -23,7 +24,7 @@ public class Vorstellung
     private Uhrzeit _endzeit;
     private Datum _datum;
  // TODO ersetze preis durch geldbetrag
-    private int _preis;
+    private Geldbetrag _preis;
     private boolean[][] _verkauft;
     private int _anzahlVerkauftePlaetze;
 
@@ -52,7 +53,7 @@ public class Vorstellung
      * @ensure getPreis() == preis
      */
     public Vorstellung(Kinosaal kinosaal, Film film, Uhrzeit anfangszeit,
-            Uhrzeit endzeit, Datum datum, int preis)
+            Uhrzeit endzeit, Datum datum, Geldbetrag preis)
     {
     	// TODO ersetze preis durch geldbetrag
         assert kinosaal != null : "Vorbedingung verletzt: saal != null";
@@ -60,7 +61,7 @@ public class Vorstellung
         assert anfangszeit != null : "Vorbedingung verletzt: anfangszeit != null";
         assert endzeit != null : "Vorbedingung verletzt: endzeit != null";
         assert datum != null : "Vorbedingung verletzt: datum != null";
-        assert preis > 0: "Vorbedingung verletzt: preis > 0";
+        assert preis.istPositiv(): "Vorbedingung verletzt: preis > 0";
 
         _kinosaal = kinosaal;
         _film = film;
@@ -128,7 +129,7 @@ public class Vorstellung
      * zurück.
      * 
      */
-    public int getPreis()
+    public Geldbetrag getPreis()
     {
     	// TODO ersetze preis durch geldbetrag
         return _preis;
@@ -190,11 +191,11 @@ public class Vorstellung
      * 
      * @require hatPlaetze(plaetze)
      */
-    public int getPreisFuerPlaetze(Set<Platz> plaetze)
+    public Geldbetrag getPreisFuerPlaetze(Set<Platz> plaetze)
     {
         assert hatPlaetze(plaetze) : "Vorbedingung verletzt: hatPlaetze(plaetze)";
         // TODO ersetze preis durch geldbetrag
-        return _preis * plaetze.size();
+        return _preis.multipliziere(plaetze.size());
     }
 
     /**

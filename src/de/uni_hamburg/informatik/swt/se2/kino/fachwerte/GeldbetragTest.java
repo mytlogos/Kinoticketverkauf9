@@ -122,4 +122,23 @@ public class GeldbetragTest
     	assertFalse(p2.subtrahierbar(p3));
     	assertTrue(p1.subtrahierbar(p1));
     }
+    
+    
+    @Test
+    public void testMultiplizierbar()
+    {
+    	Geldbetrag p1 = Geldbetrag.get(Integer.MAX_VALUE);
+    	Geldbetrag p2 = Geldbetrag.get(Integer.MIN_VALUE);
+    	
+    	assertTrue(p1.multiplizierbar(1));
+    	assertTrue(p1.multiplizierbar(-1));
+    	assertTrue(p2.multiplizierbar(1));
+    	assertFalse(p2.multiplizierbar(-1));
+    	assertFalse(p1.multiplizierbar(2));
+    	assertFalse(p1.multiplizierbar(-2));
+    	assertFalse(p2.multiplizierbar(Integer.MIN_VALUE));
+    	assertFalse(p1.multiplizierbar(Integer.MIN_VALUE));
+    	assertFalse(p2.multiplizierbar(Integer.MAX_VALUE));
+    	assertFalse(p1.multiplizierbar(Integer.MAX_VALUE));
+    }
 }
